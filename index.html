@@ -4,10 +4,271 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mensah Anni Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.csss">
 </head>
 <body>
+    <style>
+        *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: poppins, sans-serif;
+    text-decoration: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.hero-header {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background: #f3f1f1;
+}
+
+.wrapper {
+    width: 1200px;
+    max-width: 95%;
+    margin:0 auto;
+    padding: 0 20px;
+}
+
+header {
+    padding:40px 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo i {
+    height: 45px;
+    width: 45px;
+    background-color: rgb(118, 118, 118);
+    border-radius: 50px;
+    color: #000000;
+    font-weight: 700;
+    font-size:  1.5rem;
+    padding: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.logo .logo-text {
+    font-size: 24px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+}
+
+nav .togglebtn {
+    width:35px;
+    height: 35px;
+    position: absolute;
+    top: 45px;
+    right: 3%;
+    z-index: 5;
+    cursor: pointer;
+    display: none;
+}
+
+nav .togglebtn span {
+    display: block;
+    background-color: rgb(0, 0, 238);
+    margin: 5px 0px;
+    width: 100%;
+    height: 3px;
+    transition: 0.3s;
+    transition-property: transform, opacity;
+}
+
+nav .nav-links {
+    list-style-type: none;
+
+}
+
+nav .nav-links li {
+    display: inline-block;
+}
+
+nav .nav-links li a {
+    color: rgb(0, 0, 0);
+    margin-right: 2.5rem;
+}
+
+nav .nav-links li:hover {
+text-transform: unset;
+    transform: scale(1.2);
+    font-weight: 600;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 4rem;
+}
+
+.container .hero-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 15px solid rgb(94, 92, 92);
+    box-shadow: 5px 7px 20px black;
+}
+
+.hero-pic img {
+    height: 100%;
+    width: 100%;
+    transition: 0.5s;
+}
+
+.hero-pic img:hover {
+ transform: scale(1.2);
+}
+
+.hero-txt {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-txt h5 span{
+    color:rgb(29, 17, 242);
+    font-size: 1.6rem;
+}
+
+.hero-txt h1 {
+    color:rgb(48, 47, 47);
+    font-size: 3rem;
+}
+
+.hero-txt p {
+    color: rgb(34, 33, 33);
+}
+
+.btn-console {
+    margin: 45px 0;
+    cursor: pointer;
+}
+
+.btn-console .btn {
+    border-color: rgb(0, 0, 0);
+    color: #000000;
+    background-color: rgb(247, 249, 249);
+    padding: 12px 15px;
+    margin: 5px 0px;
+    margin-right: 7px;
+    border-radius: 30px;
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: 0 10px 10px -8px rgb(34, 34, 35);
+}
+
+.btn-console .btn:hover {
+    background-color: #424141;
+    font-weight: 300;
+    transition-behavior:  0.3s 12px;
+}
+.btn-active {
+    border-color: black;
+}
+
+.hero-txt .social i{
+    color: black;
+    font-size: 18px;
+    transition: 0.5s;
+    height: 2em;
+}
+
+.social i :hover {
+    color:#424141;
+    size: 15px;
+}
+
+
+/* Media*/
+
+@media(max-width:930px) {  
+
+
+    nav .togglebtn {
+        display: initial;
+    }
+
+    .click {
+        top: 45px;
+    }
+    
+    .click span {
+        position: absolute;
+        margin-top: 12px;
+    }
+
+    .click span:first-child {
+        transform: rotate(-40deg);
+    }
+
+    .click span:nth-child(2) {
+        opacity: 0;
+        margin: 0;
+    }
+
+    .click span:last-child {
+        transform: rotate(45deg);
+        top:0 ;
+    }
+    
+    nav .nav-links{
+        position: absolute;
+        top:110px;
+        right: -100;
+        bottom: 0;
+        width: 60%;
+        height: 100vh;
+        z-index: 3;
+        background-color: #fafafa;
+        display: block;
+        margin-bottom: 15px;
+        text-align: center;
+        box-shadow: 5px 13px 30px black;
+        transition: 0.5;
+        padding: 25px 0px;
+    }
+
+    nav .nav-links li {
+        display: block;
+    }
+    nav .nav-links li a {
+        display: block;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    nav .nav-links .open {
+        right: 0;
+    }
+}
+
+@media(max-width:768px) {
+    .container{
+        flex-direction: column;
+        padding-top: 40px 0px;
+    }
+
+    .hero-txt{
+        padding: 40px 0px;
+    }
+}
+
+    </style>
         <div class="hero-header">
             <div class="wrapper">
                 <header>
@@ -30,7 +291,7 @@
                 </header>
                 <div class="container">
                     <div class="hero-pic">
-                        <img src="/themes/Profile.pic1.png" alt="profile-pic">
+                        <img src="Profile.pic1.png" alt="profile-pic">
                     </div> 
                     <div class="hero-txt">
                         <h5>Hi I'm <span class="input">Frontend Developer</span></h5>
