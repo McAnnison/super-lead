@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mensah Anni Portfolio</title>
-   
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.csss">
 </head>
 <body>
@@ -16,27 +16,27 @@
     font-family: poppins, sans-serif;
     text-decoration: none;
 }
-
-body {
+body{ 
     overflow-x: hidden;
+    background: #f2f1f1;
 }
 
 .hero-header {
     width: 100%;
     height: 100%;
     min-height: 100vh;
-    background: #f3f1f1;
+   
 }
 
 .wrapper {
-    width: 1200px;
+    width: 1280px;
     max-width: 95%;
     margin:0 auto;
     padding: 0 20px;
 }
 
 header {
-    padding:40px 0 30px;
+    padding: 40px 0 30px;
     display: flex;
     justify-content: space-between;
     align-content: center;
@@ -69,46 +69,7 @@ header {
     color: rgb(0, 0, 0);
 }
 
-nav .togglebtn {
-    width:35px;
-    height: 35px;
-    position: absolute;
-    top: 45px;
-    right: 3%;
-    z-index: 5;
-    cursor: pointer;
-    display: none;
-}
 
-nav .togglebtn span {
-    display: block;
-    background-color: rgb(0, 0, 238);
-    margin: 5px 0px;
-    width: 100%;
-    height: 3px;
-    transition: 0.3s;
-    transition-property: transform, opacity;
-}
-
-nav .nav-links {
-    list-style-type: none;
-
-}
-
-nav .nav-links li {
-    display: inline-block;
-}
-
-nav .nav-links li a {
-    color: rgb(0, 0, 0);
-    margin-right: 2.5rem;
-}
-
-nav .nav-links li:hover {
-text-transform: unset;
-    transform: scale(1.2);
-    font-weight: 600;
-}
 .container {
     display: flex;
     justify-content: space-around;
@@ -143,7 +104,7 @@ text-transform: unset;
 
 .hero-txt h5 span{
     color:rgb(29, 17, 242);
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 }
 
 .hero-txt h1 {
@@ -153,6 +114,7 @@ text-transform: unset;
 
 .hero-txt p {
     color: rgb(34, 33, 33);
+    font-size: 20px;
 }
 
 .btn-console {
@@ -169,23 +131,138 @@ text-transform: unset;
     margin-right: 7px;
     border-radius: 30px;
     border: 2px solid rgb(0, 0, 0);
-    box-shadow: 0 10px 10px -8px rgb(34, 34, 35);
+    box-shadow: 0 10px 10px -8px rgb(0, 0, 0);
 }
 
 .btn-console .btn:hover {
     background-color: #424141;
-    font-weight: 300;
-    transition-behavior:  0.3s 12px;
+    font-style: oblique;
 }
-.btn-active {
+.btn-active :hover{
     border-color: black;
 }
+
+/* About Me Section */
+.about-me {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.about-me h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.about-me p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.about-me div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.about-me img {
+    width: 45%;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-me img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.about-me div p {
+    width: 50%;
+    font-size: 2rem;
+    color: #444;
+    line-height: 1.6;
+    padding: 0 20px;
+}
+
+.contact {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.contact h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.contact img {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Alternate Layout */
+#learning {
+    flex-direction: row;
+}
+
+#coding {
+    flex-direction: row-reverse;
+}
+
+#sport {
+    flex-direction: row;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-me div {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-me img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .about-me div p {
+        width: 100%;
+        padding: 0;
+    }
+}
+
 
 .hero-txt .social i{
     color: black;
     font-size: 18px;
     transition: 0.5s;
     height: 2em;
+}
+
+.hro-txt .social a{
+    height: 2em;
+    color: #000000;
 }
 
 .social i :hover {
@@ -199,63 +276,7 @@ text-transform: unset;
 @media(max-width:930px) {  
 
 
-    nav .togglebtn {
-        display: initial;
-    }
-
-    .click {
-        top: 45px;
-    }
-    
-    .click span {
-        position: absolute;
-        margin-top: 12px;
-    }
-
-    .click span:first-child {
-        transform: rotate(-40deg);
-    }
-
-    .click span:nth-child(2) {
-        opacity: 0;
-        margin: 0;
-    }
-
-    .click span:last-child {
-        transform: rotate(45deg);
-        top:0 ;
-    }
-    
-    nav .nav-links{
-        position: absolute;
-        top:110px;
-        right: -100;
-        bottom: 0;
-        width: 60%;
-        height: 100vh;
-        z-index: 3;
-        background-color: #fafafa;
-        display: block;
-        margin-bottom: 15px;
-        text-align: center;
-        box-shadow: 5px 13px 30px black;
-        transition: 0.5;
-        padding: 25px 0px;
-    }
-
-    nav .nav-links li {
-        display: block;
-    }
-    nav .nav-links li a {
-        display: block;
-        margin-bottom: 15px;
-        text-align: center;
-    }
-
-    nav .nav-links .open {
-        right: 0;
-    }
-}
+   
 
 @media(max-width:768px) {
     .container{
@@ -268,6 +289,32 @@ text-transform: unset;
     }
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-txt h1 {
+        font-size: 28px; /* Adjust heading size */
+    }
+
+    .hero-txt p {
+        font-size: 16px; /* Adjust paragraph size */
+    }
+
+    .btn-console {
+        flex-direction: row; /* Align buttons in a row */
+        justify-content: center;
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-txt h1 {
+        font-size: 28px; /* Adjust heading size */
+    }
+
+    .hero-txt p {
+        font-size: 16px;
+    }
+}
+
+
+}
     </style>
         <div class="hero-header">
             <div class="wrapper">
@@ -276,57 +323,56 @@ text-transform: unset;
                         <i class="fa-solid fa-a">M</i>
                         <div class="logo-text">Mensah Anni</div>
                     </div>
-                    <nav> 
-                        <div class="togglebtn">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <ul class="nav-links">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About Me</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </nav>
+                   
                 </header>
                 <div class="container">
                     <div class="hero-pic">
-                        <img src="Profile.pic1.png" alt="profile-pic">
+                        <img src="/themes/Profile.pic1.png" alt="profile-pic">
                     </div> 
                     <div class="hero-txt">
                         <h5>Hi I'm <span class="input">Frontend Developer</span></h5>
                         <h1>Mensah Anni</h1>
-                        <p>Lohiufh hhuhg g9uyte9gph p9f 8fhg uh f vr[pgy8g h7rg fyeo gh9ryg 7ryer8br guy-g hur g8s guprg 
-                            hfpiusavbv [vug f rgau   g9ry4 yr8gqy reyg98q rgy734 tdhv 9[   ryrg98 [9geg p78g9w r89gyr 
-                            8yr 8trtgpryg pry tg ygt73w ggs  v fghhhsp98r ytgfgurhfuo rr8ps8gvu g ]]]
+                        <p>I am a passionate and driven Level 200 IT student with a strong foundation in computer science and a keen
+                             interest in software development, web design, and emerging technologies. I thrive on solving problems,
+                              learning new skills, and applying innovative solutions to real-world challenges. My goal is to continuously
+                               grow and contribute meaningfully to the tech industry while building impactful digital solutions.
+            
                         </p>
 
                         <div class="btn-console">
                             <a href="#" class="btn active">Download CV</a>
-                            <a href="#" class="btn">Contact</a>
-                        </div>
-
-                        <div class="social">
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="#"><i class="fa-brands fa-email"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fa-brands fa-pinterest"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    
-<script>
-    var togglebtn=document.querySelector(".togglebtn");
-    var nav=document.querySelector(".nav-links");
-    var links=document=querySelector(".nav-links");
-
-    togglebtn.addEventListener("click", function() { 
-        this.classList.toggle("click");
-        nav.classList.toggle("open");
-    })
-</script>
+      <section class="about-me">
+            <h1>About Me</h1>
+            <p>Enjoy the picture gallery of my hobbies!</p>
+        
+            <div id="learning">
+                <img src="/themes/istockphoto-1581045672-612x612.jpg" alt="Learning time">
+                <p>I love to take my learning time seriously.</p>
+            </div>
+        
+            <div id="coding">
+                <img src="/themes/rear-view-african-young-programmer-260nw-2179743043.webp" alt="Coding time">
+                <p>I don't joke with my coding time because practice makes perfect.</p>
+            </div>
+        
+            <div id="sport">
+                <img src="/themes/63374a294d423e00181ff2e3.webp" alt="Basketball time">
+                <p>
+                    When I am not learning or coding, you will find me on the basketball court. 
+                    This helps me to get fit and release stress because "all work and no play makes Jack a dull boy."
+                </p>
+            </div>
+        </section>
+        
+        <section class="contact">
+            <h1>Contact</h1>
+            <p>You can easily find me on the following platforms!</p>
+            <img src="/themes/email.png" alt="email icon" onclick="window.location.href='mailto:mensahanni98@gmail.com'">
+        </section>
 </body>
 </html>
