@@ -3,379 +3,664 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mensah Anni Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.csss">
+    <title>University of Ghana Course Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #0052A5;
+            --secondary: #F8C300;
+            --accent: #DA001A;
+            --light: #F5F5F5;
+            --dark: #333;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e6b400;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 82, 165, 0.9), rgba(0, 82, 165, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Dashboard Section */
+        .dashboard {
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .course-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+        }
+        
+        .course-body {
+            padding: 1.5rem;
+        }
+        
+        .course-footer {
+            padding: 1rem 1.5rem;
+            background-color: var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--success);
+            border-radius: 4px;
+        }
+        
+        /* Announcements Section */
+        .announcements {
+            background-color: white;
+            padding: 2rem 0;
+        }
+        
+        .announcement-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .announcement-item {
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            background-color: var(--light);
+            margin-bottom: 1rem;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .announcement-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .announcement-meta {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Upcoming Events */
+        .events {
+            padding: 2rem 0;
+        }
+        
+        .event-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .event-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .event-date {
+            background-color: var(--secondary);
+            color: var(--dark);
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .event-details {
+            padding: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .user-actions {
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Accessibility Features */
+        .skip-to-content {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        
+        .skip-to-content:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 0.5rem;
+            text-decoration: none;
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary: #000080;
+                --secondary: #FFFF00;
+                --accent: #FF0000;
+                --light: #FFFFFF;
+                --dark: #000000;
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
 <body>
-    <style>
-        *{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: poppins, sans-serif;
-    text-decoration: none;
-}
-body{ 
-    overflow-x: hidden;
-    background: #f2f1f1;
-}
-
-.hero-header {
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-   
-}
-
-.wrapper {
-    width: 1280px;
-    max-width: 95%;
-    margin:0 auto;
-    padding: 0 20px;
-}
-
-header {
-    padding: 40px 0 30px;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    flex-wrap: wrap;
-}
-
-.logo {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo i {
-    height: 45px;
-    width: 45px;
-    background-color: rgb(118, 118, 118);
-    border-radius: 50px;
-    color: #000000;
-    font-weight: 700;
-    font-size:  1.5rem;
-    padding: 10px;
-    margin-right: 5px;
-    cursor: pointer;
-    text-align: center;
-}
-
-.logo .logo-text {
-    font-size: 24px;
-    font-weight: 600;
-    color: rgb(0, 0, 0);
-}
-
-
-.container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-top: 4rem;
-}
-
-.container .hero-pic {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 15px solid rgb(94, 92, 92);
-    box-shadow: 5px 7px 20px black;
-}
-
-.hero-pic img {
-    height: 100%;
-    width: 100%;
-    transition: 0.5s;
-}
-
-.hero-pic img:hover {
- transform: scale(1.2);
-}
-
-.hero-txt {
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-}
-
-.hero-txt h5 span{
-    color:rgb(29, 17, 242);
-    font-size: 1.2rem;
-}
-
-.hero-txt h1 {
-    color:rgb(48, 47, 47);
-    font-size: 3rem;
-}
-
-.hero-txt p {
-    color: rgb(34, 33, 33);
-    font-size: 20px;
-}
-
-.btn-console {
-    margin: 45px 0;
-    cursor: pointer;
-}
-
-.btn-console .btn {
-    border-color: rgb(0, 0, 0);
-    color: #000000;
-    background-color: rgb(247, 249, 249);
-    padding: 12px 15px;
-    margin: 5px 0px;
-    margin-right: 7px;
-    border-radius: 30px;
-    border: 2px solid rgb(0, 0, 0);
-    box-shadow: 0 10px 10px -8px rgb(0, 0, 0);
-}
-
-.btn-console .btn:hover {
-    background-color: #424141;
-    font-style: oblique;
-}
-.btn-active :hover{
-    border-color: black;
-}
-
-/* About Me Section */
-.about-me {
-    padding: 50px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.about-me h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.about-me p {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 40px;
-}
-
-.about-me div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 50px;
-    flex-wrap: wrap;
-    text-align: left;
-}
-
-.about-me img {
-    width: 45%;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.about-me img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.about-me div p {
-    width: 50%;
-    font-size: 2rem;
-    color: #444;
-    line-height: 1.6;
-    padding: 0 20px;
-}
-
-.contact {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #f9f9f9;
-}
-
-.contact h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.contact p {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.contact img {
-    width: 100px;
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: inline;
-}
-
-.contact img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-
-/* Alternate Layout */
-#learning {
-    flex-direction: row;
-}
-
-#coding {
-    flex-direction: row-reverse;
-}
-
-#sport {
-    flex-direction: row;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .about-me div {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .about-me img {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .about-me div p {
-        width: 100%;
-        padding: 0;
-    }
-}
-
-
-.hero-txt .social i{
-    color: black;
-    font-size: 18px;
-    transition: 0.5s;
-    height: 2em;
-}
-
-.hro-txt .social a{
-    height: 2em;
-    color: #000000;
-}
-
-.social i :hover {
-    color:#424141;
-    size: 15px;
-}
-
-
-/* Media*/
-
-@media(max-width:930px) {  
-
-
-   
-
-@media(max-width:768px) {
-    .container{
-        flex-direction: column;
-        padding-top: 40px 0px;
-    }
-
-    .hero-txt{
-        padding: 40px 0px;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    .hero-txt h1 {
-        font-size: 28px; /* Adjust heading size */
-    }
-
-    .hero-txt p {
-        font-size: 16px; /* Adjust paragraph size */
-    }
-
-    .btn-console {
-        flex-direction: row; /* Align buttons in a row */
-        justify-content: center;
-    }
-}
-@media (min-width: 769px) and (max-width: 1024px) {
-    .hero-txt h1 {
-        font-size: 28px; /* Adjust heading size */
-    }
-
-    .hero-txt p {
-        font-size: 16px;
-    }
-}
-
-
-}
-    </style>
-        <div class="hero-header">
-            <div class="wrapper">
-                <header>
-                    <div class="logo">
-                        <i class="fa-solid fa-a">M</i>
-                        <div class="logo-text">Mensah Anni</div>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap fa-2x"></i>
+                    <div class="logo-text">UG Course Portal</div>
+                </div>
+                
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">Courses</a></li>
+                        <li><a href="#">Assignments</a></li>
+                        <li><a href="#">Grades</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="user-actions">
+                    <button class="btn btn-outline"><i class="fas fa-bell"></i></button>
+                    <button class="btn btn-primary"><i class="fas fa-user"></i> Profile</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Welcome to Your Learning Dashboard</h1>
+                <p>Access your courses, track your progress, and stay updated with announcements and events all in one place.</p>
+                <button class="btn btn-primary">View My Courses</button>
+            </div>
+        </section>
+        
+        <!-- Dashboard Section -->
+        <section class="dashboard">
+            <div class="container">
+                <h2 class="section-title">My Courses</h2>
+                
+                <div class="courses-grid">
+                    <!-- Course Card 1 -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Human-Computer Interaction</h3>
+                            <p>ICS 352 - Dr. P.A.K. Ansah</p>
+                        </div>
+                        <div class="course-body">
+                            <p>This week: Assignment 2 due Friday. Lecture on Fitts' Law and Mental Models.</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%"></div>
+                            </div>
+                            <p>Progress: 75% complete</p>
+                        </div>
+                        <div class="course-footer">
+                            <a href="#">View Content</a>
+                            <span>5 new items</span>
+                        </div>
                     </div>
-                   
-                </header>
-                <div class="container">
-                    <div class="hero-pic">
-                        <img src="Profile.pic1.png" alt="profile-pic">
-                    </div> 
-                    <div class="hero-txt">
-                        <h5>Hi I'm <span class="input">Frontend Developer</span></h5>
-                        <h1>Mensah Anni</h1>
-                        <p>I am a passionate and driven Level 200 IT student with a strong foundation in computer science and a keen
-                             interest in software development, web design, and emerging technologies. I thrive on solving problems,
-                              learning new skills, and applying innovative solutions to real-world challenges. My goal is to continuously
-                               grow and contribute meaningfully to the tech industry while building impactful digital solutions.
-            
-                        </p>
-
-                        <div class="btn-console">
-                            <a href="#" class="btn active">Download CV</a>
+                    
+                    <!-- Course Card 2 -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Web Technologies</h3>
+                            <p>ICS 321 - Dr. E. Mensah</p>
+                        </div>
+                        <div class="course-body">
+                            <p>Introduction to React.js and component-based architecture.</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 60%"></div>
+                            </div>
+                            <p>Progress: 60% complete</p>
+                        </div>
+                        <div class="course-footer">
+                            <a href="#">View Content</a>
+                            <span>3 new items</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Course Card 3 -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Data Structures</h3>
+                            <p>ICS 210 - Prof. J. Boateng</p>
+                        </div>
+                        <div class="course-body">
+                            <p>This week: Trees and Graph data structures. Quiz on Friday.</p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%"></div>
+                            </div>
+                            <p>Progress: 85% complete</p>
+                        </div>
+                        <div class="course-footer">
+                            <a href="#">View Content</a>
+                            <span>2 new items</span>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+        
+        <!-- Announcements Section -->
+        <section class="announcements">
+            <div class="container">
+                <h2 class="section-title">Recent Announcements</h2>
+                
+                <div class="announcement-list">
+                    <!-- Announcement 1 -->
+                    <div class="announcement-item">
+                        <h3>Mid-Semester Examinations Schedule</h3>
+                        <div class="announcement-meta">
+                            <span><i class="far fa-clock"></i> Posted on: October 15, 2023</span>
+                            <span><i class="fas fa-user"></i> By: Academic Affairs</span>
+                        </div>
+                        <p>The mid-semester examination schedule has been published. Please check your student portal for your specific timetable.</p>
+                    </div>
+                    
+                    <!-- Announcement 2 -->
+                    <div class="announcement-item">
+                        <h3>HCI Workshop: Practical UX Design</h3>
+                        <div class="announcement-meta">
+                            <span><i class="far fa-clock"></i> Posted on: October 12, 2023</span>
+                            <span><i class="fas fa-user"></i> By: Department of ICS</span>
+                        </div>
+                        <p>There will be a hands-on workshop on UX design principles this Friday at 2 PM in the CS Lab. All HCI students are encouraged to attend.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Upcoming Events -->
+        <section class="events">
+            <div class="container">
+                <h2 class="section-title">Upcoming Events</h2>
+                
+                <div class="event-list">
+                    <!-- Event 1 -->
+                    <div class="event-card">
+                        <div class="event-date">
+                            <p>Oct 20, 2023</p>
+                            <p>2:00 PM - 4:00 PM</p>
+                        </div>
+                        <div class="event-details">
+                            <h3>HCI Assignment 2 Submission</h3>
+                            <p>Human-Computer Interaction assignment on Fitts' Law and interface evaluation.</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Online Submission</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 2 -->
+                    <div class="event-card">
+                        <div class="event-date">
+                            <p>Oct 25, 2023</p>
+                            <p>9:00 AM - 11:00 AM</p>
+                        </div>
+                        <div class="event-details">
+                            <h3>Web Technologies Quiz</h3>
+                            <p>Quiz on React components and state management.</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Room 304, CS Building</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Event 3 -->
+                    <div class="event-card">
+                        <div class="event-date">
+                            <p>Nov 2, 2023</p>
+                            <p>10:00 AM - 12:00 PM</p>
+                        </div>
+                        <div class="event-details">
+                            <h3>Guest Lecture: UX in Practice</h3>
+                            <p>Industry expert from UX Ghana will share practical insights.</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Main Auditorium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Academic Calendar</a></li>
+                        <li><a href="#">Course Catalog</a></li>
+                        <li><a href="#">Library Resources</a></li>
+                        <li><a href="#">Student Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> support@ug.edu.gh</p>
+                    <p><i class="fas fa-phone"></i> +233 24 123 4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Department of Computer Science, University of Ghana</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 University of Ghana Course Portal. All rights reserved.</p>
+            </div>
         </div>
-      <section class="about-me">
-            <h1>About Me</h1>
-            <p>Enjoy the picture gallery of my hobbies!</p>
-        
-            <div id="learning">
-                <img src="istockphoto-1581045672-612x612.jpg" alt="Learning time">
-                <p>I love to take my learning time seriously.</p>
-            </div>
-        
-            <div id="coding">
-                <img src="rear-view-african-young-programmer-260nw-2179743043.webp" alt="Coding time">
-                <p>I don't joke with my coding time because practice makes perfect.</p>
-            </div>
-        
-            <div id="sport">
-                <img src="63374a294d423e00181ff2e3.webp" alt="Basketball time">
-                <p>
-                    When I am not learning or coding, you will find me on the basketball court. 
-                    This helps me to get fit and release stress because "all work and no play makes Jack a dull boy."
-                </p>
-            </div>
-        </section>
-        
-        <section class="contact">
-            <h1>Contact</h1>
-            <p>You can easily find me on the following platforms!</p>
-            <img src="email.png" alt="email icon" onclick="window.location.href='mailto:mensahanni98@gmail.com'">
-            <img src="github.png" alt="github" onclick="windw.location.href='https://githu.com/mcannison'">
-            <img src="linkedin.png" alt="linkedin" onclick="window.location.href='https://www.linkedin.com'">
-        </section>
+    </footer>
+    
+    <script>
+        // Simple JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Course card hover effect
+            const courseCards = document.querySelectorAll('.course-card');
+            courseCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.1)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+                });
+            });
+            
+            // Notification button alert
+            const notificationBtn = document.querySelector('.btn-outline');
+            notificationBtn.addEventListener('click', function() {
+                alert('You have 3 new notifications');
+            });
+            
+            // Profile button functionality
+            const profileBtn = document.querySelector('.btn-primary');
+            profileBtn.addEventListener('click', function() {
+                alert('Redirecting to your profile page...');
+            });
+        });
+    </script>
 </body>
 </html>
