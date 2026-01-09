@@ -238,13 +238,14 @@ const styles = StyleSheet.create({
   },
   sortButtons: {
     flexDirection: 'row',
-    gap: 8,
+    marginHorizontal: -4,
   },
   sortButton: {
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
     backgroundColor: '#F5F5F5',
+    margin: 4,
   },
   sortButtonActive: {
     backgroundColor: '#6C63FF',
@@ -331,12 +332,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingVertical: 12,
     borderRadius: 24,
-    gap: 8,
   },
   createButtonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
+    marginLeft: 8,
   },
   fab: {
     position: 'absolute',

@@ -229,7 +229,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 18,
     borderRadius: 12,
-    gap: 8,
   },
   continueButtonDisabled: {
     backgroundColor: '#CCC',
@@ -238,5 +237,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+    marginRight: 8,
   },
 });

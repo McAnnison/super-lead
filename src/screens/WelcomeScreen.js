@@ -145,13 +145,14 @@ const styles = StyleSheet.create({
   genreTags: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 8,
+    marginHorizontal: -4,
   },
   genreTag: {
     backgroundColor: '#E8E6FF',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
+    margin: 4,
   },
   genreText: {
     color: '#6C63FF',

@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
   formatList: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 12,
+    marginHorizontal: -6,
   },
   formatTag: {
     flexDirection: 'row',
@@ -201,11 +201,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 10,
     borderRadius: 8,
-    gap: 8,
+    margin: 6,
   },
   formatLabel: {
     color: '#6C63FF',
     fontWeight: '600',
+    marginLeft: 8,
   },
   uploadButton: {
     backgroundColor: '#F8F9FF',
@@ -277,7 +278,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 18,
     borderRadius: 12,
-    gap: 8,
   },
   continueButtonDisabled: {
     backgroundColor: '#CCC',
@@ -286,5 +286,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+    marginRight: 8,
   },
 });

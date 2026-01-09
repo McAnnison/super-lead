@@ -269,13 +269,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 24,
-    gap: 24,
+    paddingHorizontal: 12,
   },
   controlButton: {
     width: 50,
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
+    marginHorizontal: 12,
   },
   playButton: {
     width: 70,
@@ -347,7 +348,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#333',
     lineHeight: 24,
-    fontFamily: 'monospace',
   },
   infoSection: {
     backgroundColor: '#E8F5E9',
@@ -380,11 +380,11 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 2,
     borderColor: '#6C63FF',
-    gap: 8,
   },
   createAnotherText: {
     fontSize: 16,
     fontWeight: '600',
     color: '#6C63FF',
+    marginLeft: 8,
   },
 });

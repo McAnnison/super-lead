@@ -267,7 +267,7 @@ Understanding is the goal
 
 [Verse 1]
 Dancing through the concepts, rhythm so sweet
-${content.text ? content.text.substring(0, 80) : 'Highlife education, can\'t be beat'}
+${content.text ? content.text.substring(0, 80) : 'Highlife education, cannot be beat'}
 Traditional sounds, modern learning way
 Knowledge in the music, every single day
 

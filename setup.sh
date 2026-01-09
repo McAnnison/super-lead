@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # NoteSong AI Quick Start Script
 # This script helps set up the development environment
